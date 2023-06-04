@@ -5,8 +5,30 @@ import time
 import threading
 
 import cv2
+import discord
 import numpy as np
-from matplotlib import pyplot as plt
+# from matplotlib import pyplot as plt
+
+
+discord_active = True
+with open(r'C:\Users\metol\Documents\Discord Masak token.txt', 'r') as f:
+    lines = f.readlines()
+bot_token, channel_id = lines[0], int(lines[1])
+
+
+if discord_active:
+    # Create a new instance of the Discord client with intents
+    intents = discord.Intents.default()
+    intents.dm_messages = True
+    intents.dm_typing = True
+    intents.guild_messages = True
+    intents.guild_typing = True
+    intents.guilds = True
+    intents.messages = True
+    intents.typing = True
+    intents.message_content = True
+    client = discord.Client(intents=intents)
+    print(f'We have logged in as {client.user}')
 
 
 class Camera:
@@ -379,6 +401,8 @@ class Comparer:
     def live_comparison(self, arg):
         cv2.namedWindow("Comparer", cv2.WINDOW_NORMAL)
         video = self.cam.get_video(color_space='hsv')
+        if discord_active:
+            notifier("Comenzando comparacion")
         while True:
             # Update image
             self.current_img = next(video)
@@ -395,20 +419,35 @@ class Comparer:
 
             # Exit loop if 'q' key is pressed
             if cv2.waitKey(1) & 0xFF == ord('q'):
+                cv2.destroyWindow("Comparer")
                 break
 
+def notifier(message: str):
+    @client.event
+    async def on_message(message):
+        if message.author == client.user:
+            return
 
+        if message.content.startswith('h'):
+            await message.channel.send('Hello!')
+
+    @client.event
+    async def on_ready():
+        channel = client.get_channel(channel_id)
+        await channel.send(message)
+        await client.close()
+
+    client.run(bot_token)
 
 
 if __name__ == '__main__':
+
 
     comedero1 = Dispenser('comedero1')
     comedero2 = Dispenser('comedero2')
 
     comedero1_contenido = Content('comedero1_contenido')
     comedero2_contenido = Content('comedero2_contenido')
-
-    print("Content initialized")
 
     cam = Camera(   exposure = None,
                     gain = None,
