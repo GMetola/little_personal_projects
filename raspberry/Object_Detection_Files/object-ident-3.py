@@ -29,7 +29,7 @@ def getObjects(img, thres, nms, draw=True, objects=[]):
     if len(classIds) != 0:
         for classId, confidence,box in zip(classIds.flatten(),confs.flatten(),bbox):
             className = classNames[classId - 1]
-            if className in objects: 
+            if className in objects:
                 objectInfo.append([box,className])
                 if (draw):
                     cv2.rectangle(img,box,color=(0,255,0),thickness=2)
@@ -37,29 +37,28 @@ def getObjects(img, thres, nms, draw=True, objects=[]):
                     cv2.FONT_HERSHEY_COMPLEX,1,(0,255,0),2)
                     cv2.putText(img,str(round(confidence*100,2)),(box[0]+200,box[1]+30),
                     cv2.FONT_HERSHEY_COMPLEX,1,(0,255,0),2)
-                    
+
                     servo.angle = -90
                     time.sleep = 2
                     servo.angle = 90
-    
+
     return img,objectInfo
 
 
 if __name__ == "__main__":
 
     cap = cv2.VideoCapture(0)
-    cap.set(3,640)
-    cap.set(4,480)
-    #cap.set(10,70)
-    
-    
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH,640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
+    #cap.set(cv2.CAP_PROP_BRIGHTNESS,70)
+
+
     while True:
         success, img = cap.read()
         result, objectInfo = getObjects(img,0.45,0.2, objects=['cup','horse'])
         #print(objectInfo)
-        
-        
-        
+
+
+
         cv2.imshow("Output",img)
         cv2.waitKey(1)
-    

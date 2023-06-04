@@ -40,9 +40,9 @@ def getObjects(img, thres, nms, draw=True, objects=[]):
 if __name__ == "__main__":
 
     cap = cv2.VideoCapture(0)
-    cap.set(3,640)
-    cap.set(4,480)
-    #cap.set(10,70)
+    cap.set(cv2.CAP_PROP_FRAME_WIDTH,640)
+    cap.set(cv2.CAP_PROP_FRAME_HEIGHT,480)
+    #cap.set(cv2.CAP_PROP_BRIGHTNESS,70)
 
 
     while True:

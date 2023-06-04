@@ -2,9 +2,9 @@ import os
 
 import cv2
 
-#thres = 0.45 # Threshold to detect object
-
-root_path = "/home/pi/Desktop/Object_Detection_Files"
+thres = 0.6 # Threshold to detect object
+nms_thres = 0.4
+root_path = r"C:\git\little_personal_projects\raspberry\Object_Detection_Files"
 classNames = []
 classFile = os.path.join(root_path, "coco.names")
 with open(classFile,"rt") as f:
@@ -50,7 +50,7 @@ if __name__ == "__main__":
 
     while True:
         success, img = cap.read()
-        result, objectInfo = getObjects(img,0.45,0.2)
+        result, objectInfo = getObjects(img,thres, nms_thres)
         #print(objectInfo)
         cv2.imshow("Output",img)
         cv2.waitKey(1)
