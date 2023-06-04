@@ -3,5 +3,3 @@ build/
 dist/
 *.spec
 
-# Raspberry
-raspberry/Object_Detection_Files/frozen_inference_graph.pb
