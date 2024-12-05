@@ -1,8 +1,12 @@
 import ast
+from datetime import datetime
 import pandas as pd
 import random
 
 global TABLA_BASE
+
+BASE_PATH = "C:/Users/metol/Documents/amigo_invisible/"
+YEAR = datetime.now().year
 
 def convert_to_list(s):
     return ast.literal_eval(s)
@@ -31,9 +35,9 @@ def exclude_last_year(tabla, last_results):
     return tabla
 
 converters = {'Exclusiones': convert_to_list}
-original = pd.read_csv(r'C:\Users\metol\Documents\amigo_invisible\amigo_invisible.csv',sep=';', converters=converters)
-last_year = pd.read_csv(r'C:\Users\metol\Documents\amigo_invisible\resultado_amigo_invisible_2022.csv',sep=';', converters=converters)
-TABLA_BASE = pd.read_csv(r'C:\Users\metol\Documents\amigo_invisible\amigo_invisible_2023.csv',sep=';', converters=converters)
+original = pd.read_csv(BASE_PATH + 'amigo_invisible' + '.csv',sep=';', converters=converters)
+last_year = pd.read_csv(BASE_PATH + 'resultado_amigo_invisible_' + str(YEAR - 1) + '.csv',sep=';', converters=converters)
+TABLA_BASE = pd.read_csv(BASE_PATH + 'amigo_invisible_' + str(YEAR - 1) + '.csv',sep=';', converters=converters)
 TABLA_BASE = exclude_last_year(TABLA_BASE, last_year)
 
 tabla, people, ya_tiene = initialize(last_year)
@@ -45,7 +49,12 @@ tries = 0
 while True:
     try:
         for index in range(len(tabla)):
+            king = tabla["nombre"].loc[index]
             posibles = set(people) - set(tabla['Exclusiones'][index]) - ya_tiene
+            if king in tabla['Regala a'].values:
+                match_row = tabla.loc[tabla['Regala a'] == king]
+                kingsPeasant = match_row["nombre"].iloc[0]
+                posibles = posibles - set(kingsPeasant)
             sorteo = random.sample(posibles,1)[0]
             ya_tiene.add(sorteo)
             tabla.at[index, 'Regala a'] = sorteo
@@ -64,9 +73,9 @@ print(tabla[tabla['Regala a']!='Gabriel'])
 
 print("Va a salir el nombre de la persona que regala a Gabriel.")
 
-print(tabla[tabla['Regala a']=='Gabriel'])
+print(tabla[tabla['Regala a']=='Gabriel']["nombre"].values[0])
 
 print("Guardando el resultado para evitar repetirlo el año que viene.")
-tabla.to_csv(r'C:\Users\metol\Documents\amigo_invisible\resultado_amigo_invisible_2023.csv',sep=';')
+tabla.to_csv(BASE_PATH + 'resultado_amigo_invisible_' + str(YEAR) + '.csv',sep=';')
 
 print("Bye")
