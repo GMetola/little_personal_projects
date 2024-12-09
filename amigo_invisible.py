@@ -55,7 +55,7 @@ while True:
                 match_row = tabla.loc[tabla['Regala a'] == king]
                 kingsPeasant = match_row["nombre"].iloc[0]
                 posibles = posibles - set(kingsPeasant)
-            sorteo = random.sample(posibles,1)[0]
+            sorteo = random.sample(posibles, 1)[0]
             ya_tiene.add(sorteo)
             tabla.at[index, 'Regala a'] = sorteo
         break
@@ -68,6 +68,19 @@ while True:
         else:
             print("No doy con la combinación perfecta...")
             exit()
+
+# Comprobar 3 veces si hay continuidad en los regalos de principio a fin
+for j in range(3):
+    primer_king = random.sample(list(tabla["nombre"].values), 1)[0]
+    king = primer_king
+    already_kings = [primer_king]
+    for i in range(len(tabla)):
+        peasant = tabla.loc[tabla["nombre"] == king]["Regala a"].values[0]
+        already_kings.append(king)
+        if not peasant in already_kings:
+            king = peasant
+    assert (i + 1 == len(tabla))
+
 
 print(tabla[tabla['Regala a']!='Gabriel'])
 
