@@ -5,13 +5,13 @@ import random
 
 global TABLA_BASE
 
-BASE_PATH = "C:/Users/metol/Documents/amigo_invisible/"
+BASE_PATH = "C:/git/little_personal_projects/amigo_invisible/"  # C:/Users/metol/Documents/amigo_invisible/"
 YEAR = datetime.now().year
 
 def convert_to_list(s):
     return ast.literal_eval(s)
 
-def initialize(last_year):
+def initialize():
     tabla = TABLA_BASE
     tabla = tabla.sort_values(by='dificultad',ascending=False)
     tabla = tabla.reset_index(drop=True)
@@ -21,7 +21,7 @@ def initialize(last_year):
     ya_tiene = set()
     return tabla, people, ya_tiene
 
-def exclude_last_year(tabla, last_results):
+def exclude_previous_years(tabla, last_results):
     for index in range(len(last_results)):
         try:
             king = last_results['nombre'][index]
@@ -37,10 +37,13 @@ def exclude_last_year(tabla, last_results):
 converters = {'Exclusiones': convert_to_list}
 original = pd.read_csv(BASE_PATH + 'amigo_invisible' + '.csv',sep=';', converters=converters)
 last_year = pd.read_csv(BASE_PATH + 'resultado_amigo_invisible_' + str(YEAR - 1) + '.csv',sep=';', converters=converters)
-TABLA_BASE = pd.read_csv(BASE_PATH + 'amigo_invisible_' + str(YEAR - 1) + '.csv',sep=';', converters=converters)
-TABLA_BASE = exclude_last_year(TABLA_BASE, last_year)
+two_years_ago = pd.read_csv(BASE_PATH + 'resultado_amigo_invisible_' + str(YEAR - 2) + '.csv',sep=';', converters=converters)
+TABLA_BASE = pd.read_csv(BASE_PATH + 'amigo_invisible_' + str(YEAR) + '.csv',sep=';', converters=converters)
 
-tabla, people, ya_tiene = initialize(last_year)
+TABLA_BASE = exclude_previous_years(TABLA_BASE, last_year)
+TABLA_BASE = exclude_previous_years(TABLA_BASE, two_years_ago)
+
+tabla, people, ya_tiene = initialize()
 
 print("Personas que faltan con respecto al original: ", set(original['nombre']) - set(people))
 print("Personas que no estaban en el original: ", set(people) - set(original['nombre']))
@@ -79,7 +82,10 @@ for j in range(3):
         already_kings.append(king)
         if not peasant in already_kings:
             king = peasant
-    assert (i + 1 == len(tabla))
+        else:
+            print(f"Se pierde la continuidad empezando por {primer_king} en el regalo {i}.")
+            print(f"Se quedarían sin participar {len(tabla)-i} primos")
+            break
 
 
 print(tabla[tabla['Regala a']!='Gabriel'])

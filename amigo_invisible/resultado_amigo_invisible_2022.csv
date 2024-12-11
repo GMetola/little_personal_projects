@@ -1,0 +1,26 @@
+nombre;email;Exclusiones;Regala a;dificultad
+Rodrigo;rodrigo.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];Daniel;4
+JorgeG;jorgilon2003@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];JuanP;4
+Pedro;pedrofmet@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Laura;8
+JuanM;juanmadrigal92@gmail.com;['JuanM', 'Clara', 'Gabriel', 'SaraB', 'Santi'];Pedro;5
+Esteban;esteban.gdmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];Fernando;4
+Andres;andresfmet@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Rodrigo;8
+Fernando;frodriguezmt@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];JuanM;6
+Raquel;raquelmetolarivadulla@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];Miguel;6
+Laura;laurametola@hotmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];Teresa;6
+JuanP;juanpinilla95@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];Santi;6
+Daniel;fuentemetcv@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Esteban;8
+Teresa;teresavelaromero@gmail.con;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Clara;8
+Rebeca;r.delafuentemetola@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Alejandro;8
+Ester;esterfmet@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Raquel;8
+CarlosM;carlosmetola@gmail.com;['Edu','Lorena','Carlos','Javier'];JorgeG;4
+Damian;mayani.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];CarlosM;4
+Priscila;priscilametban@gmail.com;['Priscila'];Edu;1
+Edu;eduardo.metola@gmail.com;['Edu','Lorena','Carlos','Javier'];Bea;4
+Bea;jimenezcastrobeatriz@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];SaraB;6
+Alejandro;alexmetola@hotmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];Ester;6
+Lorena;martinez.gonzalez.lorena@gmail.com;['Edu','Lorena','Carlos','Javier'];Gabriel;4
+Clara;clarametola@gmail.com;['JuanM', 'Clara', 'Gabriel', 'SaraB', 'Santi'];Lorena;5
+Gabriel;metolag@hotmail.com;['JuanM', 'Clara', 'Gabriel', 'SaraB', 'Santi'];Rebeca;5
+Santi;santimetfer99@gmail.com;['JuanM', 'Clara', 'Gabriel', 'SaraB', 'Santi'];Andres;5
+Miguel;miguelon841996@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Andres', 'Miguel'];Priscila;8

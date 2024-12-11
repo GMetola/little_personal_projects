@@ -1,0 +1,26 @@
+nombre;email;Exclusiones;Regala a;dificultad
+Edu;eduardo.metola@gmail.com;['Edu','Lorena','CarlosM','Javier'];-;4
+Javier;-;['Edu','Lorena','CarlosM','Javier'];-;4
+CarlosM;carlosmetola@gmail.com;['Edu','Lorena','CarlosM','Javier'];-;4
+Lorena;martinez.gonzalez.lorena@gmail.com;['Edu','Lorena','CarlosM','Javier'];-;4
+Priscila;priscilametban@gmail.com;['Priscila'];-;1
+Clara;clarametola@gmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi'];-;5
+JuanM;juanmadrigal92@gmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi'];-;5
+Gabriel;metolag@hotmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi'];-;5
+Santi;santimetfer99@gmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi'];-;5
+Bea;jimenezcastrobeatriz@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];-;6
+Alejandro;alexmetola@hotmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];-;6
+Laura;laurametola@hotmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];-;6
+JuanP;juanpinilla95@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];-;6
+Pedro;pedrofmet@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Andres;andresfmet@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Daniel;fuentemetcv@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Rebeca;r.delafuentemetola@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Miguel'];-;8
+Teresa;teresavelaromero@gmail.con;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Paloma;;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Pablo;;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Ester;esterfmet@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester','Andres'];-;10
+Rodrigo;rodrigo.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
+JorgeG;jorgilon2003@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
+Esteban;esteban.gdmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
+Damian;mayani.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4

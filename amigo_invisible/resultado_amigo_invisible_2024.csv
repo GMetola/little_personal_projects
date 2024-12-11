@@ -1,0 +1,26 @@
+;nombre;email;Exclusiones;Regala a;dificultad
+0;Paloma;;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres'];Damian;10
+1;Teresa;teresavelaromero@gmail.con;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres', 'Javier'];JorgeG;10
+2;Daniel;fuentemetcv@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres', 'CarlosM'];Rodrigo;10
+3;Andres;andresfmet@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres', 'JuanM'];Laura;10
+4;Pedro;pedrofmet@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres', 'Priscila'];Lorena;10
+5;Ester;esterfmet@gmail.com;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres', 'Rodrigo'];Priscila;10
+6;Pablo;;['Rebeca', 'Daniel', 'Teresa', 'Pablo', 'Paloma', 'Miguel', 'Pedro', 'Ester', 'Andres'];Esteban;10
+7;Rebeca;r.delafuentemetola@gmail.com;['Pedro', 'Andres', 'Daniel', 'Teresa', 'Rebeca', 'Ester', 'Miguel'];JuanP;8
+8;Alejandro;alexmetola@hotmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro', 'Esteban'];Daniel;6
+9;Laura;laurametola@hotmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];Clara;6
+10;JuanP;juanpinilla95@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];Santi;6
+11;Bea;jimenezcastrobeatriz@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro', 'Lorena'];Teresa;6
+12;Santi;santimetfer99@gmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi', 'JorgeG'];Bea;5
+13;Gabriel;metolag@hotmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi', 'Bea'];Edu;5
+14;JuanM;juanmadrigal92@gmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi', 'Miguel'];CarlosM;5
+15;Clara;clarametola@gmail.com;['JuanM', 'Clara', 'Gabriel', 'Santi', 'Teresa'];Andres;5
+16;Rodrigo;rodrigo.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian', 'Edu'];Gabriel;4
+17;JorgeG;jorgilon2003@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian', 'Gabriel'];JuanM;4
+18;Esteban;esteban.gdmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian', 'Clara'];Javier;4
+19;Edu;eduardo.metola@gmail.com;['Edu', 'Lorena', 'CarlosM', 'Javier', 'Santi'];Pedro;4
+20;Javier;-;['Edu', 'Lorena', 'CarlosM', 'Javier', 'Ester'];Alejandro;4
+21;Lorena;martinez.gonzalez.lorena@gmail.com;['Edu', 'Lorena', 'CarlosM', 'Javier', 'Alejandro'];Paloma;4
+22;CarlosM;carlosmetola@gmail.com;['Edu', 'Lorena', 'CarlosM', 'Javier', 'Andres'];Rebeca;4
+23;Damian;mayani.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian', 'Daniel'];Pablo;4
+24;Priscila;priscilametban@gmail.com;['Priscila', 'Pedro'];Ester;1
