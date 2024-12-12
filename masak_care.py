@@ -306,6 +306,46 @@ class Camera:
 
         return image_list, image_size
 
+    def comparison(self, img1, img2, bright_thresh, window_name):
+        """
+            Compares both images with different colors, green the first, blue the second.
+        """
+        img1 = cv2.equalizeHist(img1)
+        img2 = cv2.equalizeHist(img2)
+
+        if not bright_thresh is None:
+            img1 = cv2.threshold(img1, bright_thresh, 255, cv2.THRESH_BINARY_INV)[1]
+            img2 = cv2.threshold(img2, bright_thresh, 255, cv2.THRESH_BINARY_INV)[1]
+        elif bright_thresh > 127:
+            img1 = cv2.threshold(img1, bright_thresh, 255, cv2.THRESH_BINARY)[1]
+            img2 = cv2.threshold(img2, bright_thresh, 255, cv2.THRESH_BINARY)[1]
+        compared = np.stack((img1, img2, np.zeros_like(img2)), axis=2)
+        #compared = np.rot90(compared)
+        cv2.imshow(window_name, compared)
+        cv2.waitKey(1)
+
+    def calibrate_cam_with_static_img(self, bright_thresh, static_img):
+        window_name = "Calibration with static"
+        cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+        closed_window = False
+        # on comparison: blue the life camera, green the static.
+        while not closed_window:
+            actual_frames = []
+            image = self.get_image()
+            if len(np.shape(image)) >2:
+                image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+            actual_frames.append(image)
+            self.comparison(actual_frames.pop(), static_img, bright_thresh, window_name)
+            closed_window = cv2.getWindowProperty(window_name, 0) == -1
+
+        cv2.destroyAllWindows()
+        print('Stopping camera...')
+        cam.stop()
+        time.sleep(1)
+        cam.close()
+        print('Cam stopped: ',cam)
+
+
 
 class ImageZone:
     """
@@ -343,7 +383,6 @@ class ImageZone:
 
         self.mask_path = os.path.join(self.project_path, 'masks', self.mask_name)
         self.mask = cv2.imread(self.mask_path, 0)
-
 
 
 class Content(ImageZone):
@@ -458,5 +497,7 @@ if __name__ == '__main__':
                     visualize= False)
     print("Camera initialized")
 
+    # WORKING ON THIS:
+    # cam.calibrate_cam_with_static_img(10, comedero1.base_img)
     comparer = Comparer(cam)
     comparer.live_comparison(comedero2_contenido)
