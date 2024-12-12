@@ -19,7 +19,8 @@ def initialize():
     # People should not have as invisible friend their partner or siblings
     people = tabla['nombre']
     ya_tiene = set()
-    return tabla, people, ya_tiene
+    ya_ha_regalado = set()
+    return tabla, people, ya_tiene, ya_ha_regalado
 
 def exclude_previous_years(tabla, last_results):
     for index in range(len(last_results)):
@@ -43,28 +44,34 @@ TABLA_BASE = pd.read_csv(BASE_PATH + 'amigo_invisible_' + str(YEAR) + '.csv',sep
 TABLA_BASE = exclude_previous_years(TABLA_BASE, last_year)
 TABLA_BASE = exclude_previous_years(TABLA_BASE, two_years_ago)
 
-tabla, people, ya_tiene = initialize()
+tabla, people, ya_tiene, ya_ha_regalado = initialize()
 
 print("Personas que faltan con respecto al original: ", set(original['nombre']) - set(people))
 print("Personas que no estaban en el original: ", set(people) - set(original['nombre']))
 tries = 0
-
+king = "Priscila"
+print(f"Este año empieza a regalar {king}")
 while True:
     try:
         for index in range(len(tabla)):
-            king = tabla["nombre"].loc[index]
-            posibles = set(people) - set(tabla['Exclusiones'][index]) - ya_tiene
+            fila_actual = tabla.loc[tabla["nombre"] == king]
+            posibles = set(people) - set(fila_actual["Exclusiones"].to_list()[0]) - ya_tiene - ya_ha_regalado
+            if len(posibles) == 0:
+                print("No quedaba gente que no haya regalado ya")
+                posibles = set(people) - set(fila_actual["Exclusiones"].to_list()[0]) - ya_tiene
             if king in tabla['Regala a'].values:
                 match_row = tabla.loc[tabla['Regala a'] == king]
                 kingsPeasant = match_row["nombre"].iloc[0]
                 posibles = posibles - set(kingsPeasant)
             sorteo = random.sample(posibles, 1)[0]
+            ya_ha_regalado.add(king)
             ya_tiene.add(sorteo)
-            tabla.at[index, 'Regala a'] = sorteo
+            tabla.at[fila_actual.index[0], 'Regala a'] = sorteo
+            king = sorteo
         break
     except:
         print("Con esta combinación, alguien se quedaba sin regalo.")
-        tabla, people, ya_tiene = initialize(last_year)
+        tabla, people, ya_tiene, ya_ha_regalado = initialize()
         tries += 1
         if tries < 20:
             continue
@@ -76,15 +83,18 @@ while True:
 for j in range(3):
     primer_king = random.sample(list(tabla["nombre"].values), 1)[0]
     king = primer_king
-    already_kings = [primer_king]
+    already_kings = []
     for i in range(len(tabla)):
         peasant = tabla.loc[tabla["nombre"] == king]["Regala a"].values[0]
         already_kings.append(king)
         if not peasant in already_kings:
             king = peasant
         else:
-            print(f"Se pierde la continuidad empezando por {primer_king} en el regalo {i}.")
-            print(f"Se quedarían sin participar {len(tabla)-i} primos")
+            if len(tabla)-i > 1:
+                print(f"Se pierde la continuidad empezando por {primer_king} en el regalo {i}.")
+                print(f"Se quedarían sin participar {len(tabla)-i} primos")
+            else:
+                print("Done! :-)")
             break
 
 
