@@ -1,5 +1,5 @@
 nombre;email;Exclusiones;Regala a;dificultad
-Edu;eduardo.metola@gmail.com;['Edu','Lorena','CarlosM','Javier'];-;4
+Edu;eduardo.metola@gmail.com;['Edu','Lorena','Carlos','Javier','Rodrigo', 'JorgeG', 'Esteban', 'Damian','siempre_Garcia_le_toca'];-;8
 Javier;-;['Edu','Lorena','CarlosM','Javier'];-;4
 CarlosM;carlosmetola@gmail.com;['Edu','Lorena','CarlosM','Javier'];-;4
 Lorena;martinez.gonzalez.lorena@gmail.com;['Edu','Lorena','CarlosM','Javier'];-;4
@@ -24,3 +24,5 @@ Rodrigo;rodrigo.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
 JorgeG;jorgilon2003@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
 Esteban;esteban.gdmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
 Damian;mayani.gmm@gmail.com;['Rodrigo', 'JorgeG', 'Esteban', 'Damian'];-;4
+Fernando;frodriguezmt@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];-;6
+Raquel;raquelmetolarivadulla@gmail.com;['Fernando', 'Raquel', 'Laura', 'JuanP', 'Bea', 'Alejandro'];-;6
